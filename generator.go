@@ -1,7 +1,7 @@
 // Package generator select random name from words dictionary
 // You can use this for creating new files for example:
 // mkdir $(generator) etc.
-package generator
+package main
 
 import (
 	"fmt"
@@ -25,11 +25,10 @@ func getWordsDictionary() []string {
 	data, err := templateBox.String("words.txt")
 	check(err)
 
-	return strings.Split(string(data), ", ")
+	return strings.Split(string(data), " ")
 }
 
-// GenerateName generate random name and print to console
-func GenerateName() {
+func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	words := getWordsDictionary()
